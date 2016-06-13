@@ -161,11 +161,11 @@ When we've used Sinatra, we were managing the routes and the code executed for a
 
 
 ```ruby
-	get "/books" do
+get "/books" do
 		# Here is the code that will be executed when the client requests /books for example:
     @books = Book.all
     erb :index
-	end
+end
 ```
 
 This is handy for us as developers, because it allows us to keep everything in the same place - routing and controller logic - but if the app grows it can get unreadable. Imagine, for example, an app that has 20 or 30 different routes... your main routes file could contain a lot of complex code.
