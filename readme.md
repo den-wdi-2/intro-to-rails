@@ -54,12 +54,6 @@ Release | Year | Features
 **4.2** | Dec 2014 | Asynchronous mailers, major performance upgrade for ActiveRecord, web console (Rails version of Tux) built in
 **5.0** | Right Now | ActionCable (Websockets) built in, API mode built in, ruby 2.2.1 support, Turbolinks is faster.
 
-
-* Rails 4.0 (June 2013) - Ruby 2.0 preferred; 1.9.3+ required,
-* Rails 4.2 (Dec 2014) -
-![](http://guides.rubyonrails.org/images/rails4_features.png)
-* Rails 5 (Happening now) -
-
 Over the years, Rails has indeed made it easier for beginners to dive into web development and build large complex applications. Some popular websites built on Rails include Twitter (at one point), GitHub and, of course, 37signals' very own Basecamp. Although it has often been criticized for performance and bloat, Rails continues its iterations with an ever-growing developer community and a vibrant ecosystem.
 
 ## Demo: A blog in 10 mins
