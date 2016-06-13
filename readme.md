@@ -43,7 +43,7 @@ Rails was created with the goal of increasing programmers' happiness and product
 As we look back at the history of Rails, let's review some of the more significant releases over the years.
 
 Release | Year | Features
------ | ------------
+----- | -------|---------
 **1.0** | Dec 2005 | Basic framework, not too much bigger than Sinatra
 **2.0** | Dec 2007 | HTTP basic authentication with cookie store sessions
 **2.1** | Nov 2008 | multi-language support through [i18n](http://whatis.techtarget.com/definition/internationalization-I18N), Ruby 1.9 suport
