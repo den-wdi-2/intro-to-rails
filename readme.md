@@ -6,6 +6,8 @@ Market: DEN
 
 ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
 
+<!-- Before getting started `gem install rails` on Ruby 2.2.5 -->
+
 # Intro to Rails
 
 ### Why is this important?
@@ -96,7 +98,7 @@ For this introduction, we want to create a simple app: a cookbook! The specs for
 * Create new recipes and edit existing recipes
 * Delete recipes
 
-Rails follow a pattern called "convention over configuration" - this means that by default, a Rails app expects you to follow specific patterns and folder structures. This means you need to learn these conventions, but also means that once you learn them, you save time by not having to setup a lot of the configuration you'd otherwise need to set up manually.
+Rails follows a pattern called "convention over configuration" - this means that by default, a Rails app expects you to follow specific patterns and folder structures. This means you need to learn these conventions, but also means that once you learn them, you save time by not having to setup a lot of the configuration you'd otherwise need to set up manually.
 
 This structure may look a bit complex – there are a lot of files, specific naming conventions, and some nested files and folders. We generally don't create this structure manually, but instead use the Rails command line tool, which initializes the app for us:
 
