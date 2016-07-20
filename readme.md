@@ -1,5 +1,7 @@
 <!--
 Market: SF
+Adapted By: Zeb Girouard
+Market: DEN
 -->
 
 ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
@@ -8,27 +10,27 @@ Market: SF
 
 ### Why is this important?
 *This workshop is important because:*
-- Rails is one of the most popular web development frameworks of all time, known for allowing remarkably  quick builds, it's manageable learning curve, and giant community.
-- Rails strict conventions create apps that look familliar, so that any rails programmer can understand a new rails app with minimum effort.
+- Rails is one of the most popular web development frameworks of all time, known for allowing remarkably  quick builds, its manageable learning curve, and giant community.
+- Rails' strict conventions create apps that look familiar, so that any Rails programmer can understand a new rails app with minimum effort.
 
 ### Objectives
 *After this lesson, students will be able to:*
 
-- Create a new Rails app
-- Describe similarities between Sinatra and Rails routing
-- Generate a controller
-- Create RESTful routes & actions
-- Create erb views
-- Generate activerecord models
+- **Create** a new Rails app
+- **Describe** similarities between Sinatra and Rails routing
+- **Generate** a controller
+- **Create** RESTful routes & actions
+- **Create** erb views
+- **Generate** ActiveRecord models
 
 ### Where should we be now?
 *Before this lesson, students should already be able to:*
 
-- Build a Sinatra application
-- Explain MVC
-- Use ActiveRecord and Postgres to interact to persist data.
+- **Build** a Sinatra application
+- **Explain** MVC
+- **Use** ActiveRecord and Postgres to interact to persist data.
 
-## Intro: What is Rails
+## Intro: What Is Rails
 
 Rails was created in 2003 by David Heinemeier Hansson, while working on the code base for Basecamp, a project management tool by 37signals. David extracted Ruby on Rails and officially released it as open source code in July of 2004. Despite rapid iteration of the Rails code base throughout the years, it has stuck to three basic principles:
 
@@ -36,7 +38,7 @@ Rails was created in 2003 by David Heinemeier Hansson, while working on the code
 * Model-View-Controller Architecture
 * Programmer Happiness
 
-Rails was created with the goal of increasing programmers' happiness and productivity levels. In short, with Rails you can get started with a full-stack web application by quickly creating pages, templates and even query functions. Rails heavily emphasizes "Convention over Configuration." This means that a programmer only needs to specify and code out the non-standard parts of a program. Even though Rails comes with its own set of tools and settings, you're certainly not limited to library of rails commands and configurations. Developers are free to configure their applications however they wish, though adopting conventions is certainly recommended.
+Rails was created with the goal of increasing programmers' happiness and productivity levels. In short, with Rails you can get started with a full-stack web application by quickly creating pages, templates and even query functions. Rails heavily emphasizes "Convention over Configuration." This means that a programmer only needs to specify and code out the non-standard parts of a program. Even though Rails comes with its own set of tools and settings, you're certainly not limited to the built-in library of Rails commands and configurations. Developers are free to configure their applications however they wish, though adopting conventions is certainly recommended.
 
 #### A Look Back
 
@@ -47,9 +49,9 @@ Release | Year | Features
 **1.0** | Dec 2005 | Basic framework, not too much bigger than Sinatra
 **2.0** | Dec 2007 | HTTP basic authentication with cookie store sessions
 **2.1** | Nov 2008 | multi-language support through [i18n](http://whatis.techtarget.com/definition/internationalization-I18N), Ruby 1.9 suport
-**2.3** | Mar 2009 | Templating with erb, handlebars, etc. built in.
-**3.0** | Aug 2010 | New router for controller, mailer controller (built in email support), CRSF protection
-**3.1** | Aug 2011 | support for jQuery, SASS, CoffeeScript, Sprockets with Assets Pipeline. **note:** Sprockets loads the files specified, processes them if necessary, concatenates them into one single file and then compresses them
+**2.3** | Mar 2009 | Templating with erb, handlebars, etc. built in
+**3.0** | Aug 2010 | New router for controller, mailer controller (built in email support), CSRF protection
+**3.1** | Aug 2011 | Support for jQuery, SASS, CoffeeScript, Sprockets with Assets Pipeline. **Note:** Sprockets loads the files specified, processes them if necessary, concatenates them into one single file, and then compresses them
 **4.0** | June 2013 | Strong Parameters, Turbolinks
 **4.2** | Dec 2014 | Asynchronous mailers, major performance upgrade for ActiveRecord, web console (Rails version of Tux) built in
 **5.0** | Right Now | ActionCable (Websockets) built in, API mode built in, ruby 2.2.1 support, Turbolinks is faster.
