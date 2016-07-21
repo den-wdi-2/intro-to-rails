@@ -4,6 +4,10 @@ Adapted By: Zeb Girouard
 Market: DEN
 -->
 
+<!-- 9:00 10 minutes -->
+
+<!-- Hook: So let's start today by talking about jobs.  The main point of this program is to get you all ready for a web development job.  But what kind of development jobs are there?  Well, one of the big ones is "Rails Web Developer".  Let's talk about that for just a moment before we get into the Rails technology.  -->
+
 ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
 
 <!-- Before getting started `gem install rails` on Ruby 2.2.5 -->
@@ -32,6 +36,8 @@ Market: DEN
 - **Explain** MVC
 - **Use** ActiveRecord and Postgres to interact to persist data.
 
+<!-- 9:10 10 minutes -->
+
 ## Intro: What Is Rails
 
 Rails was created in 2003 by David Heinemeier Hansson, while working on the code base for Basecamp, a project management tool by 37signals. David extracted Ruby on Rails and officially released it as open source code in July of 2004. Despite rapid iteration of the Rails code base throughout the years, it has stuck to three basic principles:
@@ -45,6 +51,8 @@ Rails was created with the goal of increasing programmers' happiness and product
 #### A Look Back
 
 As we look back at the history of Rails, let's review some of the more significant releases over the years.
+
+<!-- Whip-around with read-aloud -->
 
 Release | Year | Features
 ----- | -------|---------
@@ -60,11 +68,19 @@ Release | Year | Features
 
 Over the years, Rails has indeed made it easier for beginners to dive into web development and build large complex applications. Some popular websites built on Rails include Twitter (at one point), GitHub and, of course, 37signals' very own Basecamp. Although it has often been criticized for performance and bloat, Rails continues its iterations with an ever-growing developer community and a vibrant ecosystem.
 
-## Demo: A blog in 10 mins
+<!-- Catch-phrase Ruby, Rails, Sinatra, ActiveRecord, erb -->
+
+<!-- 9:20 10 minutes -->
+
+<!-- Half-mast -->
+
+## Demo: A blog in less than 10 mins
 
 ![](http://i.giphy.com/KI9oNS4JBemyI.gif)
 
 The goal of the next few minutes is to show the power that Rails gives us – it's actually possible to create a website with a lot of the functionality you've seen in our Sinatra app – forms, links, database, and MVC structure – in less than 5 minutes. We will not detail each step for this app, but we will create a dynamic website in 5 mins by typing the following commands.
+
+<!--CFU: Ask students what we are doing with each of these commands -->
 
 ```bash
 rails new blog_app -d postgresql
@@ -77,10 +93,16 @@ rails server
 
 Now we'll head over to `localhost:3000/posts`. All of our REST actions are live!
 
+Now give it a try on your own!
+
+<!-- 9:30 5 minutes -->
+
 ## What is Rails? -- Some details [here](./what-is-rails.md)
 
 ## Differences between Sinatra and Rails - Discussion
 Take a few minutes to discuss in your table the differences and similarities
+
+<!-- 9:35 5 minutes -->
 
 ## Installing Rails
 
@@ -89,6 +111,8 @@ Take a few minutes to discuss in your table the differences and similarities
 ```
 
 ## Lets make a Rails App!
+
+<!-- Half-mast -->
 
 #### Create a Rails app with Postgres
 
@@ -110,7 +134,13 @@ Great! We just created the initial folder structure for a Rails app, and because
 
 > **Note:** By default, if you *do not* add any option for the database, Rails will create the app with SQLite3. While you are working in a local development environment (localhost), you won't notice much of a difference between SQLite3 and PostgreSQL.
 
-> Once your app is in production on a remote server, you will *not* use SQLite, and they will often use PostgreSQL. A best practice in web development is to keep development and production environments as similar as possible, so we recommend using PostgreSQL from the start.
+> Once your app is in production on a remote server, you will *not* use SQLite, and will often use PostgreSQL. A best practice in web development is to keep development and production environments as similar as possible, so we recommend using PostgreSQL from the start.
+
+<!--9:40 5 minutes -->
+
+<!-- Have students run command above and follow along -->
+
+### Folder Structure
 
 Now, let's go into the cookbook folder:
 
@@ -144,7 +174,9 @@ We will describe the other folders in later lessons, and for the next couple of 
 #### Discussion:
 Talk to your table about the file structure. We have been making our Sinatra projects look like Rails as much as is reasonable, so much will be familiar. What is unfamiliar?
 
-#### Rails Routing vs. Sinatra Routing
+<!-- 9:45 5 minutes -->
+
+### Rails Routing vs. Sinatra Routing
 
 As you know, a "route" is a combination of **the path** that was requested and **the HTTP verb** that was used to request that path.
 
@@ -200,7 +232,11 @@ end
 
 Later on in this lesson we will go into detail about handling routes inside a Rails application.
 
-#### Generate a controller
+<!-- CFU Catch-Phrase with Model, View, and Controller -->
+
+<!-- 9:40 10 minutes -->
+
+### Generate a controller
 
 As Rails is an MVC framework, we will need to have controllers to handle requests and call the database through models.
 
@@ -247,7 +283,11 @@ Running this command will generate a lot of files, including the controller, the
 
 Take a look at the controller, it has all the RESTful methods, and these methods already contain the code to query the database through the model `Recipe`.
 
-#### Create Views
+<!--CFU: Try running just rails g controller NAME, what happens?-->
+
+<!-- 9:50 5 minutes -->
+
+### Create Views
 
 There is no specific generator that will create only a view file, but you can add them manually into the appropriate folder inside views.
 
@@ -263,8 +303,11 @@ get "/recipes/about", to: 'recipes#about'
 
 If there is a file `about.html.erb` in `app/views/recipes`, this file will be automatically rendered when you call `localhost:3000/recipes/about`
 
+Take a minute and discuss the files in the `app/views` folder with your partner.  Do you notice any differences from Sinatra?  Any other big observations?
 
-#### Generate a model
+<!--9:55 5 minutes -->
+
+### Generate a model
 
 Sometimes, you will need a model but not the related controller, in which case, you will use the model generator:
 
@@ -274,7 +317,13 @@ rails g model MODEL_NAME [fields]
 
 This will generate the model by itself along with the migration containing all the fields and the data types if you wrote them in the console.
 
-###Check for Understanding
+<!--CFU: Try running just rails g model NAME, what happens?-->
+
+Take a minute and discuss the files in the `app/models` folder with your partner.  Do you notice any differences from Sinatra?  Any other big observations?
+
+<!-- 10:00 5 minutes -->
+
+## Conclusion
 
 <details>
   <summary>What does `rails new` do? What does `rails generate` do? What about scaffold?</summary>
@@ -282,7 +331,9 @@ This will generate the model by itself along with the migration containing all t
 </details>
 
 ## Closing Thoughts
-- No one ever understood Ruby on Rails an hour after they started their first app!
+- No one ever understood Ruby on Rails an hour after they started their first app!  We'll be discussing the details of Rails throughout this week, but the best way to understand the framework is to practice.
+
+<!-- Show of hands who likes Sinatra more?  Ruby on Rails? -->
 
 ## Additional Resources
 - [Rails Guides](http://guides.rubyonrails.org/)
