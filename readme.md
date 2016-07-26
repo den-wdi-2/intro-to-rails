@@ -23,7 +23,7 @@ Market: DEN
 *After this lesson, students will be able to:*
 
 - **Create** a new Rails app
-- **Describe** similarities between Sinatra and Rails routing
+- **Describe** similarities between Sinatra and Rails
 - **Generate** a controller
 - **Create** RESTful routes & actions
 - **Create** erb views
