@@ -174,6 +174,8 @@ We will describe the other folders in later lessons, and for the next couple of 
 #### Discussion:
 Talk to your table about the file structure. We have been making our Sinatra projects look like Rails as much as is reasonable, so much will be familiar. What is unfamiliar?
 
+<!--Think-Pair-Share-->
+
 <!-- 9:45 5 minutes -->
 
 ### Rails Routing vs. Sinatra Routing
@@ -232,7 +234,7 @@ end
 
 Later on in this lesson we will go into detail about handling routes inside a Rails application.
 
-<!-- CFU Catch-Phrase with Model, View, and Controller -->
+<!-- CFU Catch-Phrase with Model, View, and Controller, Recap with one student each -->
 
 <!-- 9:40 10 minutes -->
 
@@ -259,8 +261,9 @@ There are 3 different ways to create a controller in Rails:
 
 #### Create methods for a RESTful controller
 
-We've already defined what a RESTful resource is, let's see how to implement it in a rails app.
+We've already defined what a RESTful resource is, let's see how to implement it in a Rails app.
 
+<!--Write these on board -->
 As a reminder, a RESTful resource will include 7 methods:
 
 * Index
@@ -301,7 +304,7 @@ In config/routes.rb
 get "/recipes/about", to: 'recipes#about'
 ```
 
-If there is a file `about.html.erb` in `app/views/recipes`, this file will be automatically rendered when you call `localhost:3000/recipes/about`
+If there is a file `about.html.erb` in `app/views/recipes`, this file will be automatically rendered when you call `localhost:3000/recipes/about`. Let's try it out!
 
 Take a minute and discuss the files in the `app/views` folder with your partner.  Do you notice any differences from Sinatra?  Any other big observations?
 
@@ -314,6 +317,8 @@ Sometimes, you will need a model but not the related controller, in which case, 
 ```
 rails g model MODEL_NAME [fields]
 ```
+
+<!--Generate reader with name and age:integer-->
 
 This will generate the model by itself along with the migration containing all the fields and the data types if you wrote them in the console.
 
