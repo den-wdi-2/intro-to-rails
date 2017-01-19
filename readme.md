@@ -4,9 +4,9 @@ Adapted By: Zeb Girouard
 Market: DEN
 -->
 
-<!-- 9:00 10 minutes -->
+<!-- 11:15 5 minutes -->
 
-<!-- Hook: So let's start today by talking about jobs.  The main point of this program is to get you all ready for a web development job.  But what kind of development jobs are there?  Well, one of the big ones is "Rails Web Developer".  Let's talk about that for just a moment before we get into the Rails technology.  -->
+<!-- Hook: So let's start today by talking about jobs.  The main point of this program is to get you all ready for a web development job.  But what kind of development jobs are there?  Well, one of the big ones is "Rails Web Developer".  This will be just an introduction to the field, and if this is a field you are interested in, you should make a Rails app for Project 4.  Can you make a Rails app with Angular or React?  Yes.  Just make sure you don't bite off more than you can chew.  So without further ado...  -->
 
 ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
 
@@ -16,27 +16,26 @@ Market: DEN
 
 ### Why is this important?
 *This workshop is important because:*
-- Rails is one of the most popular web development frameworks of all time, known for allowing remarkably  quick builds, its manageable learning curve, and giant community.
-- Rails' strict conventions create apps that look familiar, so that any Rails programmer can understand a new rails app with minimum effort.
+- Rails is one of the most popular web development frameworks of all time, known for allowing remarkably quick builds, its manageable learning curve, and giant community.
+- Rails' strict conventions create apps that look familiar, so that any Rails programmer can understand a new Rails app with minimum effort.
 
 ### Objectives
 *After this lesson, students will be able to:*
 
 - **Create** a new Rails app
-- **Describe** similarities between Sinatra and Rails
+- **Describe** similarities and differences between Express and Rails
 - **Generate** a controller
 - **Create** RESTful routes & actions
-- **Create** erb views
-- **Generate** ActiveRecord models
+- **Create** ejs views
+- **Generate** Sequelize models
 
 ### Where should we be now?
 *Before this lesson, students should already be able to:*
 
-- **Build** a Sinatra application
 - **Explain** MVC
-- **Use** ActiveRecord and Postgres to interact to persist data.
+- **Use** Sequelize and Postgres to interact to persist data.
 
-<!-- 9:10 10 minutes -->
+<!-- 11:20 10 minutes -->
 
 ## Intro: What Is Rails
 
@@ -68,9 +67,7 @@ Release | Year | Features
 
 Over the years, Rails has indeed made it easier for beginners to dive into web development and build large complex applications. Some popular websites built on Rails include Twitter (at one point), GitHub and, of course, 37signals' very own Basecamp. Although it has often been criticized for performance and bloat, Rails continues its iterations with an ever-growing developer community and a vibrant ecosystem.
 
-<!-- Catch-phrase Ruby, Rails, Sinatra, ActiveRecord, erb -->
-
-<!-- 9:20 10 minutes -->
+<!-- 11:30 15 minutes -->
 
 <!-- Half-mast -->
 
@@ -80,7 +77,7 @@ Over the years, Rails has indeed made it easier for beginners to dive into web d
 
 The goal of the next few minutes is to show the power that Rails gives us – it's actually possible to create a website with a lot of the functionality you've seen in our Sinatra app – forms, links, database, and MVC structure – in less than 5 minutes. We will not detail each step for this app, but we will create a dynamic website in 5 mins by typing the following commands.
 
-<!--CFU: Ask students what we are doing with each of these commands -->
+<!--CFU: Ask students what they think we are doing with each of these commands -->
 
 ```bash
 rails new blog_app -d postgresql
@@ -95,20 +92,18 @@ Now we'll head over to `localhost:3000/posts`. All of our REST actions are live!
 
 Now give it a try on your own!
 
-<!-- 9:30 5 minutes -->
+<!-- 11:45 5 minutes -->
 
 ## What is Rails? -- Some details [here](./what-is-rails.md)
 
-## Differences between Sinatra and Rails - Discussion
+## Differences between Express and Rails - Discussion
 Take a few minutes to discuss in your table the differences and similarities
 
-<!-- 9:35 5 minutes -->
+<!-- 11:50 5 minutes -->
 
 ## Installing Rails
 
-```bash
-  gem install rails
-```
+If you are having issues with your Rails install, go back to the [installFest](https://github.com/den-wdi-1/installFest/blob/master/ruby-on-rails-stack.md), and make sure your configuration is correct.
 
 ## Lets make a Rails App!
 
@@ -136,7 +131,7 @@ Great! We just created the initial folder structure for a Rails app, and because
 
 > Once your app is in production on a remote server, you will *not* use SQLite, and will often use PostgreSQL. A best practice in web development is to keep development and production environments as similar as possible, so we recommend using PostgreSQL from the start.
 
-<!--9:40 5 minutes -->
+<!--11:55 5 minutes -->
 
 <!-- Have students run command above and follow along -->
 
@@ -172,13 +167,13 @@ Some details about this structure:
 We will describe the other folders in later lessons, and for the next couple of weeks, you will primarily write code inside the folders described above.
 
 #### Discussion:
-Talk to your table about the file structure. We have been making our Sinatra projects look like Rails as much as is reasonable, so much will be familiar. What is unfamiliar?
+Talk to your table about the file structure. We have been making our Express projects look a bit like Rails (go MVC!), so a lot will be familiar. What is unfamiliar?
 
 <!--Think-Pair-Share-->
 
-<!-- 9:45 5 minutes -->
+<!-- 12:00 10 minutes -->
 
-### Rails Routing vs. Sinatra Routing
+### Rails Routing vs. Express Routing
 
 As you know, a "route" is a combination of **the path** that was requested and **the HTTP verb** that was used to request that path.
 
@@ -195,20 +190,25 @@ As you know, a "route" is a combination of **the path** that was requested and *
 
 ```
 
-When we've used Sinatra, we were managing the routes and the code executed for a specific route in the same place:
+When we used Express, we were managing the routes and the code executed for a specific route in the following way:
 
 
-```ruby
-get "/books" do
-		# Here is the code that will be executed when the client requests /books for example:
-    @books = Book.all
-    erb :index
-end
+```js
+// index
+router.get('/api/books', booksController.index);
 ```
 
-This is handy for us as developers, because it allows us to keep everything in the same place - routing and controller logic - but if the app grows it can get unreadable. Imagine, for example, an app that has 20 or 30 different routes... your main routes file could contain a lot of complex code.
+And then our controller would look like:
 
-Rails has a "routing engine" that separates the routing logic from the controller logic (what we want to happen when routes are requested). The configuration for this routing engine is in the file `config/routes.rb`.
+```js
+function index(req, res) {
+	Book.findAll().then(function(books) {
+		res.json(books);
+	});
+}
+```
+
+Rails has a "routing engine" that does something similar, by separating the routing logic from the controller logic (what we want to happen when routes are requested). The configuration for this routing engine is in the file `config/routes.rb`.
 
 ```ruby
 #config/routes.rb
@@ -231,12 +231,11 @@ class BooksController < ApplicationController
 end
 ```
 
-
 Later on in this lesson we will go into detail about handling routes inside a Rails application.
 
 <!-- CFU Catch-Phrase with Model, View, and Controller, Recap with one student each -->
 
-<!-- 9:40 10 minutes -->
+<!-- 12:10 10 minutes -->
 
 ### Generate a controller
 
@@ -286,9 +285,7 @@ Running this command will generate a lot of files, including the controller, the
 
 Take a look at the controller, it has all the RESTful methods, and these methods already contain the code to query the database through the model `Recipe`.
 
-<!--CFU: Try running just rails g controller NAME, what happens?-->
-
-<!-- 9:50 5 minutes -->
+<!-- 12:20 5 minutes -->
 
 ### Create Views
 
@@ -306,9 +303,9 @@ get "/recipes/about", to: 'recipes#about'
 
 If there is a file `about.html.erb` in `app/views/recipes`, this file will be automatically rendered when you call `localhost:3000/recipes/about`. Let's try it out!
 
-Take a minute and discuss the files in the `app/views` folder with your partner.  Do you notice any differences from Sinatra?  Any other big observations?
+Take a minute and discuss the files in the `app/views` folder with your partner.  Do you notice any big differences from Express and EJS?  Any other big observations?
 
-<!--9:55 5 minutes -->
+<!--12:25 5 minutes -->
 
 ### Generate a model
 
@@ -322,11 +319,9 @@ rails g model MODEL_NAME [fields]
 
 This will generate the model by itself along with the migration containing all the fields and the data types if you wrote them in the console.
 
-<!--CFU: Try running just rails g model NAME, what happens?-->
+Take a minute and discuss the files in the `app/models` folder with your partner.  Do you notice any differences from Express and EJS?  Any other big observations?
 
-Take a minute and discuss the files in the `app/models` folder with your partner.  Do you notice any differences from Sinatra?  Any other big observations?
-
-<!-- 10:00 5 minutes -->
+<!-- 12:30 5 minutes -->
 
 ## Conclusion
 
@@ -338,7 +333,7 @@ Take a minute and discuss the files in the `app/models` folder with your partner
 ## Closing Thoughts
 - No one ever understood Ruby on Rails an hour after they started their first app!  We'll be discussing the details of Rails throughout this week, but the best way to understand the framework is to practice.
 
-<!-- Show of hands who likes Sinatra more?  Ruby on Rails? -->
+<!-- Show of hands who likes Express more?  Ruby on Rails? -->
 
 ## Additional Resources
 - [Rails Guides](http://guides.rubyonrails.org/)
