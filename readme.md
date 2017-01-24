@@ -4,7 +4,7 @@ Adapted By: Zeb Girouard
 Market: DEN
 -->
 
-<!--Actually 11:37 -->
+<!--Actually 11:38 -->
 
 <!-- 11:15 5 minutes -->
 
@@ -69,6 +69,8 @@ Release | Year | Features
 
 Over the years, Rails has indeed made it easier for beginners to dive into web development and build large complex applications. Some popular websites built on Rails include Twitter (at one point), GitHub and, of course, 37signals' very own Basecamp. Although it has often been criticized for performance and bloat, Rails continues its iterations with an ever-growing developer community and a vibrant ecosystem.
 
+<!--Actually 11:47 -->
+
 <!-- 11:30 15 minutes -->
 
 <!-- Half-mast -->
@@ -96,16 +98,20 @@ Now give it a try on your own!
 
 <!-- 11:45 5 minutes -->
 
+<!--Actually 12:10 -->
+
 ## What is Rails? -- Some details [here](./what-is-rails.md)
 
 ## Differences between Express and Rails - Discussion
 Take a few minutes to discuss in your table the differences and similarities
 
-<!-- 11:50 5 minutes -->
+<!-- 11:50 5 minutes --this should be 10 minutes, at least -->
 
 ## Installing Rails
 
 If you are having issues with your Rails install, go back to the [installFest](https://github.com/den-wdi-1/installFest/blob/master/ruby-on-rails-stack.md), and make sure your configuration is correct.
+
+<!--Actually 12:20, just went through steps -->
 
 ## Lets make a Rails App!
 
