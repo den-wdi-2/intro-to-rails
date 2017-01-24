@@ -4,6 +4,8 @@ Adapted By: Zeb Girouard
 Market: DEN
 -->
 
+<!--Actually 11:37 -->
+
 <!-- 11:15 5 minutes -->
 
 <!-- Hook: So let's start today by talking about jobs.  The main point of this program is to get you all ready for a web development job.  But what kind of development jobs are there?  Well, one of the big ones is "Rails Web Developer".  This will be just an introduction to the field, and if this is a field you are interested in, you should make a Rails app for Project 4.  Can you make a Rails app with Angular or React?  Yes.  Just make sure you don't bite off more than you can chew.  So without further ado...  -->
@@ -26,8 +28,8 @@ Market: DEN
 - **Describe** similarities and differences between Express and Rails
 - **Generate** a controller
 - **Create** RESTful routes & actions
-- **Create** ejs views
-- **Generate** Sequelize models
+- **Create** erb views
+- **Generate** ActiveRecord models
 
 ### Where should we be now?
 *Before this lesson, students should already be able to:*
